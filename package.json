@@ -36,12 +36,12 @@
     "build": "run-p prepare copy_p5 copy_sample_code create_assets_folder",
     "prepare": "webpack --mode=production",
     "copy_p5": "cpx ./node_modules/p5/lib/p5.min.js ./build/libraries/",
-    "copy_sample_code": "cpx ./sample_code/index.html ./build/ && cpx ./sample_code/my_wallpaper.js ./build/ && cpx ./sample_code/setup_optons.txt ./build/",
+    "copy_sample_code": "cpx './sample_code/*.{html,js,txt}' ./build/",
     "create_assets_folder": "mkdirp ./build/assets"
   },
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
     "babel-preset-env": "^1.7.0",
-    "p5": "^0.7.2"
+    "p5": "^0.8.0"
   }
 }
