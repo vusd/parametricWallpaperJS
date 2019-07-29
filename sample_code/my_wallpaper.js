@@ -19,4 +19,6 @@ function wallpaper_background() {
 
 function my_symbol(x, y) {
   rect(x ,y, thingy_width, thingy_height);
+
+  text(`x${x} y${y}`, x,y+thingy_height*2)
 }

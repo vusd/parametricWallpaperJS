@@ -1,6 +1,6 @@
 {
   "name": "parametricWallpaperJS",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A small framework built on top of p5js for making tiling wallpapers with javascript. This framework is a part of the \"Creative Coding projects\" youtube channel.",
   "homepage": "https://www.youtube.com/channel/UCQJBw4IgWV9Tp3CNgT5YtwA",
   "repository": {

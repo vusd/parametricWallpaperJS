@@ -32,13 +32,13 @@ export const grid_wallpaper = function(ParametricWallpaper){
 
     push();
       scale(ParametricWallpaper.resolution().scale);
-      for(var i = -w; i < width+w; i += w){
+      for(var x = -w; x < width+w; x += w){
         var row = 0;
-        for(var j = -h; j < height+h; j += h){
+        for(var y = -h; y < height+h; y += h){
           var shift = row%2 == 0 ? 0 : offset;
           push();
-            translate(i+shift, j);
-            my_symbol(0, 0);
+            translate(x+shift, y);
+            my_symbol(x/w, y/h);
             if(ParametricWallpaper.show_guide()){
               draw_dashed_rect(0,0,w,h);
             }
@@ -53,15 +53,14 @@ export const grid_wallpaper = function(ParametricWallpaper){
 
 export const glide_wallpaper = function(ParametricWallpaper){
 
-
     return function(){
 
       var w      = ParametricWallpaper.grid_settings.cell_width;
       var h      = ParametricWallpaper.grid_settings.cell_height;
       var offset = ParametricWallpaper.grid_settings.row_offset;
 
-      function symbol_and_guide(){
-        my_symbol(0, 0);
+      function symbol_and_guide(x, y){
+        my_symbol(x/w, y/h);
         if(ParametricWallpaper.show_guide()){
           draw_dashed_rect(0,0,w,h);
         }
@@ -69,15 +68,15 @@ export const glide_wallpaper = function(ParametricWallpaper){
 
       push();
         scale(ParametricWallpaper.resolution().scale);
-        for(var i = -w*2; i < width+w*2; i += w*2){
+        for(var x = -w*2; x < width+w*2; x += w*2){
           var row = 0;
-          for(var j = -h; j < height+h; j += h){
+          for(var y = -h; y < height+h; y += h){
             push();
-              translate(i, j);
-              symbol_and_guide();
+              translate(x, y);
+              symbol_and_guide(x,y);
               translate(w*2, offset);
               scale(-1, 1);
-              symbol_and_guide();
+              symbol_and_guide(x+w,y);
             pop();
             row++;
           }
